@@ -56,6 +56,41 @@ const AdminOrders: React.FC = () => {
         }
     };
 
+    // Функция для получения имени клиента
+    const getCustomerDisplay = (order: any): string => {
+        // Проверяем разные возможные поля для имени пользователя
+        if (order.user?.name) {
+            return order.user.name;
+        }
+        if (order.user?.firstName && order.user?.lastName) {
+            return `${order.user.firstName} ${order.user.lastName}`;
+        }
+        if (order.user?.firstName) {
+            return order.user.firstName;
+        }
+        if (order.user?.email) {
+            return order.user.email;
+        }
+        if (order.customerName) {
+            return order.customerName;
+        }
+        if (order.customerEmail) {
+            return order.customerEmail;
+        }
+        // Если ничего не найдено, показываем ID заказа
+        return `Заказ #${order.id}`;
+    };
+    const formatCurrency = (value: any): string => {
+        const numValue = Number(value);
+        if (typeof numValue !== 'number' || isNaN(numValue)) {
+            return '0.00';
+        }
+        return numValue.toFixed(2);
+    };
+
+    // Безопасная проверка массива orders
+    const safeOrders = Array.isArray(orders) ? orders : [];
+
     if (loading) {
         return (
             <div className="flex justify-center items-center h-64">
@@ -71,58 +106,67 @@ const AdminOrders: React.FC = () => {
             <div className="bg-white shadow rounded-lg overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
-                        <tr>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                ID заказа
-                            </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Дата
-                            </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Сумма
-                            </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Статус
-                            </th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Действия
-                            </th>
-                        </tr>
+                    <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Клиент
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Дата
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Сумма
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Статус
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Действия
+                        </th>
+                    </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        {orders.map((order) => (
-                            <tr key={order.id}>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    #{order.id}
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {new Date(order.createdAt).toLocaleDateString('ru-RU')}
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {order.total.toFixed(2)} ₽
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap">
+                    {safeOrders.map((order) => (
+                        <tr key={order.id}>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                <div>
+                                    <div className="font-medium">{getCustomerDisplay(order)}</div>
+                                    <div className="text-xs text-gray-500">#{order.id}</div>
+                                </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {new Date(order.createdAt).toLocaleDateString('ru-RU')}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {formatCurrency(order.total)} ₽
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
                                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(order.status)}`}>
                                         {getStatusText(order.status)}
                                     </span>
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <select
-                                        value={order.status}
-                                        onChange={(e) => handleStatusChange(order.id, e.target.value)}
-                                        className="text-sm border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                                    >
-                                        <option value="PENDING">Ожидает подтверждения</option>
-                                        <option value="CONFIRMED">Подтвержден</option>
-                                        <option value="SHIPPED">Отправлен</option>
-                                        <option value="DELIVERED">Доставлен</option>
-                                        <option value="CANCELLED">Отменен</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        ))}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <select
+                                    value={order.status}
+                                    onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                                    className="text-sm border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                                >
+                                    <option value="PENDING">Ожидает подтверждения</option>
+                                    <option value="CONFIRMED">Подтвержден</option>
+                                    <option value="SHIPPED">Отправлен</option>
+                                    <option value="DELIVERED">Доставлен</option>
+                                    <option value="CANCELLED">Отменен</option>
+                                </select>
+                            </td>
+                        </tr>
+                    ))}
                     </tbody>
                 </table>
+
+                {safeOrders.length === 0 && !loading && (
+                    <div className="text-center py-12">
+                        <p className="text-gray-500">Заказы не найдены</p>
+                    </div>
+                )}
             </div>
         </div>
     );
