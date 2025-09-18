@@ -11,89 +11,89 @@ export declare class OrdersController {
         };
         orderItems: ({
             product: {
+                createdAt: Date;
+                updatedAt: Date;
                 id: number;
                 name: string;
                 description: string;
-                createdAt: Date;
-                updatedAt: Date;
                 price: import("@prisma/client/runtime/library").Decimal;
                 imageUrl: string | null;
                 categoryId: number;
                 stock: number;
             };
         } & {
-            id: number;
             createdAt: Date;
-            price: import("@prisma/client/runtime/library").Decimal;
+            id: number;
             productId: number;
-            orderId: number;
             quantity: number;
+            price: import("@prisma/client/runtime/library").Decimal;
+            orderId: number;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        userId: number;
         status: import(".prisma/client").$Enums.OrderStatus;
         total: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        userId: number;
     }>;
     getUserOrders(req: any): Promise<({
         orderItems: ({
             product: {
+                createdAt: Date;
+                updatedAt: Date;
                 id: number;
                 name: string;
                 description: string;
-                createdAt: Date;
-                updatedAt: Date;
                 price: import("@prisma/client/runtime/library").Decimal;
                 imageUrl: string | null;
                 categoryId: number;
                 stock: number;
             };
         } & {
-            id: number;
             createdAt: Date;
-            price: import("@prisma/client/runtime/library").Decimal;
+            id: number;
             productId: number;
-            orderId: number;
             quantity: number;
+            price: import("@prisma/client/runtime/library").Decimal;
+            orderId: number;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        userId: number;
         status: import(".prisma/client").$Enums.OrderStatus;
         total: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        userId: number;
     })[]>;
     getOrderById(req: any, id: number): Promise<{
         orderItems: ({
             product: {
+                createdAt: Date;
+                updatedAt: Date;
                 id: number;
                 name: string;
                 description: string;
-                createdAt: Date;
-                updatedAt: Date;
                 price: import("@prisma/client/runtime/library").Decimal;
                 imageUrl: string | null;
                 categoryId: number;
                 stock: number;
             };
         } & {
-            id: number;
             createdAt: Date;
-            price: import("@prisma/client/runtime/library").Decimal;
+            id: number;
             productId: number;
-            orderId: number;
             quantity: number;
+            price: import("@prisma/client/runtime/library").Decimal;
+            orderId: number;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        userId: number;
         status: import(".prisma/client").$Enums.OrderStatus;
         total: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        userId: number;
     }>;
     getAllOrders(): Promise<({
         user: {
@@ -103,31 +103,31 @@ export declare class OrdersController {
         };
         orderItems: ({
             product: {
+                createdAt: Date;
+                updatedAt: Date;
                 id: number;
                 name: string;
                 description: string;
-                createdAt: Date;
-                updatedAt: Date;
                 price: import("@prisma/client/runtime/library").Decimal;
                 imageUrl: string | null;
                 categoryId: number;
                 stock: number;
             };
         } & {
-            id: number;
             createdAt: Date;
-            price: import("@prisma/client/runtime/library").Decimal;
+            id: number;
             productId: number;
-            orderId: number;
             quantity: number;
+            price: import("@prisma/client/runtime/library").Decimal;
+            orderId: number;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        userId: number;
         status: import(".prisma/client").$Enums.OrderStatus;
         total: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        userId: number;
     })[]>;
     updateOrderStatus(id: number, updateOrderStatusDto: UpdateOrderStatusDto): Promise<{
         user: {
@@ -137,30 +137,30 @@ export declare class OrdersController {
         };
         orderItems: ({
             product: {
+                createdAt: Date;
+                updatedAt: Date;
                 id: number;
                 name: string;
                 description: string;
-                createdAt: Date;
-                updatedAt: Date;
                 price: import("@prisma/client/runtime/library").Decimal;
                 imageUrl: string | null;
                 categoryId: number;
                 stock: number;
             };
         } & {
-            id: number;
             createdAt: Date;
-            price: import("@prisma/client/runtime/library").Decimal;
+            id: number;
             productId: number;
-            orderId: number;
             quantity: number;
+            price: import("@prisma/client/runtime/library").Decimal;
+            orderId: number;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        userId: number;
         status: import(".prisma/client").$Enums.OrderStatus;
         total: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        userId: number;
     }>;
 }

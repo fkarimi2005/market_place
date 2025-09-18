@@ -22,7 +22,7 @@ async function bootstrap() {
     });
 
     // Отдача статики для загруженных файлов
-    app.use('/uploads', express.static(join(__dirname, '..', 'uploads')));
+  app.use('/upload', express.static(join(process.cwd(), 'upload')));
 
     const port = process.env.PORT || 3001;
     await app.listen(port);

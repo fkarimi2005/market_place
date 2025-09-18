@@ -33,7 +33,7 @@ let ProductsController = class ProductsController {
     async create(file, createProductDto) {
         let imageUrl = createProductDto.imageUrl;
         if (file) {
-            imageUrl = `/uploads/${file.filename}`;
+            imageUrl = `/upload/${file.filename}`;
         }
         return this.productsService.create({ ...createProductDto, imageUrl });
     }
@@ -55,7 +55,7 @@ let ProductsController = class ProductsController {
     async update(id, file, updateProductDto) {
         let imageUrl = updateProductDto.imageUrl;
         if (file) {
-            imageUrl = `/uploads/${file.filename}`;
+            imageUrl = `/upload/${file.filename}`;
         }
         return this.productsService.update(id, { ...updateProductDto, imageUrl });
     }
@@ -73,7 +73,7 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('image', {
         storage: (0, multer_1.diskStorage)({
-            destination: './uploads',
+            destination: './upload',
             filename: (req, file, cb) => {
                 const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 cb(null, uniqueSuffix + (0, path_1.extname)(file.originalname));
@@ -142,7 +142,7 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('image', {
         storage: (0, multer_1.diskStorage)({
-            destination: './uploads',
+            destination: './upload',
             filename: (req, file, cb) => {
                 const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 cb(null, uniqueSuffix + (0, path_1.extname)(file.originalname));

@@ -8,42 +8,42 @@ export declare class ProductsController {
     constructor(productsService: ProductsService);
     create(file: Express.Multer.File, createProductDto: CreateProductDto): Promise<{
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     } & {
-        id: number;
         name: string;
         description: string;
-        createdAt: Date;
-        updatedAt: Date;
         price: import("@prisma/client/runtime/library").Decimal;
         imageUrl: string | null;
-        categoryId: number;
         stock: number;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        categoryId: number;
     }>;
     findAll(query: ProductQueryDto): Promise<{
         data: ({
             category: {
-                id: number;
                 name: string;
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                id: number;
             };
         } & {
-            id: number;
             name: string;
             description: string;
-            createdAt: Date;
-            updatedAt: Date;
             price: import("@prisma/client/runtime/library").Decimal;
             imageUrl: string | null;
-            categoryId: number;
             stock: number;
+            createdAt: Date;
+            updatedAt: Date;
+            id: number;
+            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -53,11 +53,11 @@ export declare class ProductsController {
         };
     }>;
     getCategories(): Promise<{
-        id: number;
         name: string;
         description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        id: number;
     }[]>;
     getForecastByProduct(): Promise<{
         data: {
@@ -75,22 +75,22 @@ export declare class ProductsController {
     searchByName(searchTerm: string, page?: number, limit?: number): Promise<{
         data: ({
             category: {
-                id: number;
                 name: string;
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                id: number;
             };
         } & {
-            id: number;
             name: string;
             description: string;
-            createdAt: Date;
-            updatedAt: Date;
             price: import("@prisma/client/runtime/library").Decimal;
             imageUrl: string | null;
-            categoryId: number;
             stock: number;
+            createdAt: Date;
+            updatedAt: Date;
+            id: number;
+            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -102,41 +102,41 @@ export declare class ProductsController {
     }>;
     findOne(id: number): Promise<{
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     } & {
-        id: number;
         name: string;
         description: string;
-        createdAt: Date;
-        updatedAt: Date;
         price: import("@prisma/client/runtime/library").Decimal;
         imageUrl: string | null;
-        categoryId: number;
         stock: number;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        categoryId: number;
     }>;
     update(id: number, file: Express.Multer.File, updateProductDto: UpdateProductDto): Promise<{
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     } & {
-        id: number;
         name: string;
         description: string;
-        createdAt: Date;
-        updatedAt: Date;
         price: import("@prisma/client/runtime/library").Decimal;
         imageUrl: string | null;
-        categoryId: number;
         stock: number;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        categoryId: number;
     }>;
     remove(id: number): Promise<{
         message: string;
@@ -144,11 +144,11 @@ export declare class ProductsController {
     createCategory(dto: CreateCategoryDto): Promise<{
         message: string;
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     }>;
 }

@@ -17,7 +17,7 @@ async function bootstrap() {
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
         credentials: true,
     });
-    app.use('/uploads', express.static((0, path_1.join)(__dirname, '..', 'uploads')));
+    app.use('/upload', express.static((0, path_1.join)(process.cwd(), 'upload')));
     const port = process.env.PORT || 3001;
     await app.listen(port);
     console.log(`Application is running on: http://localhost:${port}`);

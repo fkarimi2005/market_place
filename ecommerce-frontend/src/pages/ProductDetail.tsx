@@ -89,7 +89,7 @@ const ProductDetail: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div className="aspect-w-16 aspect-h-9">
                             <img
-                                src={product.imageUrl}
+                                src={`http://localhost:3001${product.imageUrl}`}
                                 alt={product.name}
                                 className="w-full h-96 object-cover rounded-lg shadow-lg"
                             />

@@ -73,6 +73,8 @@ const Products: React.FC = () => {
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-gray-900">Товары</h1>
                     <p className="mt-2 text-gray-600">Найдите то, что вам нужно</p>
+
+
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

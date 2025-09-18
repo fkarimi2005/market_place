@@ -38,7 +38,7 @@ export class ProductsController {
     @Roles('ADMIN')
     @UseInterceptors(FileInterceptor('image', {
         storage: diskStorage({
-            destination: './uploads',
+            destination: './upload',
             filename: (req, file, cb) => {
                 const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 cb(null, uniqueSuffix + extname(file.originalname));
@@ -58,7 +58,7 @@ export class ProductsController {
     ) {
         let imageUrl = createProductDto.imageUrl;
         if (file) {
-            imageUrl = `/uploads/${file.filename}`;
+            imageUrl = `/upload/${file.filename}`;
         }
         return this.productsService.create({ ...createProductDto, imageUrl });
     }
@@ -108,7 +108,7 @@ export class ProductsController {
     @Roles('ADMIN')
     @UseInterceptors(FileInterceptor('image', {
         storage: diskStorage({
-            destination: './uploads',
+            destination: './upload',
             filename: (req, file, cb) => {
                 const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 cb(null, uniqueSuffix + extname(file.originalname));
@@ -129,7 +129,7 @@ export class ProductsController {
     ) {
         let imageUrl = updateProductDto.imageUrl;
         if (file) {
-            imageUrl = `/uploads/${file.filename}`;
+            imageUrl = `/upload/${file.filename}`;
         }
         return this.productsService.update(id, { ...updateProductDto, imageUrl });
     }

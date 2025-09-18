@@ -51,7 +51,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 <Link to={`/products/${product.id}`} className="block">
                     <div className="aspect-w-16 aspect-h-9">
                         <img
-                            src={product.imageUrl}
+                           // src={product.imageUrl}
+                            src={`http://localhost:3001${product.imageUrl}`}
+
                             alt={product.name}
                             className="w-full h-48 object-cover"
                         />

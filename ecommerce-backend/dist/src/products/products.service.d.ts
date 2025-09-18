@@ -8,52 +8,52 @@ export declare class ProductsService {
     constructor(prisma: PrismaService);
     create(createProductDto: CreateProductDto): Promise<{
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     } & {
-        id: number;
         name: string;
         description: string;
-        createdAt: Date;
-        updatedAt: Date;
         price: import("@prisma/client/runtime/library").Decimal;
         imageUrl: string | null;
-        categoryId: number;
         stock: number;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        categoryId: number;
     }>;
     createCategory(dto: CreateCategoryDto): Promise<{
         message: string;
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     }>;
     findAll(query: ProductQueryDto): Promise<{
         data: ({
             category: {
-                id: number;
                 name: string;
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                id: number;
             };
         } & {
-            id: number;
             name: string;
             description: string;
-            createdAt: Date;
-            updatedAt: Date;
             price: import("@prisma/client/runtime/library").Decimal;
             imageUrl: string | null;
-            categoryId: number;
             stock: number;
+            createdAt: Date;
+            updatedAt: Date;
+            id: number;
+            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -64,42 +64,42 @@ export declare class ProductsService {
     }>;
     findOne(id: number): Promise<{
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     } & {
-        id: number;
         name: string;
         description: string;
-        createdAt: Date;
-        updatedAt: Date;
         price: import("@prisma/client/runtime/library").Decimal;
         imageUrl: string | null;
-        categoryId: number;
         stock: number;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        categoryId: number;
     }>;
     searchByName(searchTerm: string, page?: number, limit?: number): Promise<{
         data: ({
             category: {
-                id: number;
                 name: string;
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                id: number;
             };
         } & {
-            id: number;
             name: string;
             description: string;
-            createdAt: Date;
-            updatedAt: Date;
             price: import("@prisma/client/runtime/library").Decimal;
             imageUrl: string | null;
-            categoryId: number;
             stock: number;
+            createdAt: Date;
+            updatedAt: Date;
+            id: number;
+            categoryId: number;
         })[];
         meta: {
             total: number;
@@ -111,32 +111,32 @@ export declare class ProductsService {
     }>;
     update(id: number, updateProductDto: UpdateProductDto): Promise<{
         category: {
-            id: number;
             name: string;
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            id: number;
         };
     } & {
-        id: number;
         name: string;
         description: string;
-        createdAt: Date;
-        updatedAt: Date;
         price: import("@prisma/client/runtime/library").Decimal;
         imageUrl: string | null;
-        categoryId: number;
         stock: number;
+        createdAt: Date;
+        updatedAt: Date;
+        id: number;
+        categoryId: number;
     }>;
     remove(id: number): Promise<{
         message: string;
     }>;
     getCategories(): Promise<{
-        id: number;
         name: string;
         description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        id: number;
     }[]>;
     getSalesForecastByProduct(): Promise<{
         data: {

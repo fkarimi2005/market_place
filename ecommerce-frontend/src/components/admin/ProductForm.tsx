@@ -47,10 +47,13 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
         const productData = new FormData();
         productData.append('name', formData.name);
         productData.append('description', formData.description);
-        productData.append('price', formData.price.toString());
-        productData.append('categoryId', String(formData.categoryId));
+        //productData.append('price', formData.price.toString());
+       // productData.append('categoryId', String(formData.categoryId));
+        productData.append('price', String(Number(formData.price)));
+        productData.append('stock', String(Number(formData.stock)));
+        productData.append('categoryId', String(Number(formData.categoryId)));
 
-        productData.append('stock', formData.stock.toString());
+       // productData.append('stock', formData.stock.toString());
 
         if (imageFile) {
             productData.append('image', imageFile);
@@ -69,7 +72,8 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
             onClose();
         } catch (error: any) {
             // eslint-disable-next-line no-alert
-            alert(error?.normalizedMessage || 'Ошибка при сохранении товара');
+            alert(error);
+            // alert(error?.normalizedMessage || 'Ошибка при сохранении товара');
         }
     };
 
