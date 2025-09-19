@@ -67,7 +67,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                             {getStatusText(order.status)}
                         </span>
                         <span className="text-lg font-semibold text-gray-900">
-                            {total.toFixed(2)} ₽
+                            {total.toFixed(2)} $
                         </span>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                                     <span className="text-sm text-gray-600">{orderItem.quantity}x</span>
                                     <span className="text-sm font-medium text-gray-900">{orderItem.product.name}</span>
                                 </div>
-                                <span className="text-sm text-gray-600">{price.toFixed(2)} ₽</span>
+                                <span className="text-sm text-gray-600">{price.toFixed(2)} $</span>
                             </div>
                         );
                     })}

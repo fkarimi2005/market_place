@@ -12,7 +12,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 {product.name}
             </h3>
             <div className="space-y-2">
-                <p><strong>Цена:</strong> {product.price.toFixed(2)} ₽</p>
+                <p><strong>Цена:</strong> {product.price.toFixed(2)} $</p>
                 <p><strong>Описание:</strong> {product.description}</p>
                 {product.category && (
                     <p><strong>Категория:</strong> {product.category.name}</p>

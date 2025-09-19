@@ -13,7 +13,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
             </h3>
             <div className="space-y-2">
                 <p><strong>Статус:</strong> {order.status}</p>
-                <p><strong>Сумма:</strong> {order.total.toFixed(2)} ₽</p>
+                <p><strong>Сумма:</strong> {order.total.toFixed(2)} $</p>
                 <p><strong>Дата:</strong> {new Date(order.createdAt).toLocaleDateString('ru-RU')}</p>
             </div>
         </div>

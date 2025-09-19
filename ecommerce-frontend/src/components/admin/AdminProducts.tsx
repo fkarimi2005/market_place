@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchProducts, deleteProduct } from '../../store/slices/productsSlice';
+import { fetchOrders } from '../../store/slices/ordersSlice';
 import { fetchCategories } from '../../store/slices/categoriesSlice';
 import ProductForm from './ProductForm';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 const AdminProducts: React.FC = () => {
     const dispatch = useAppDispatch();
-    const { products, loading } = useAppSelector((state) => state.products);
+    const { products, loading: productsLoading } = useAppSelector((state) => state.products);
     const { categories } = useAppSelector((state) => state.categories);
+    const { orders, loading: ordersLoading } = useAppSelector((state) => state.orders);
+
     const [showForm, setShowForm] = useState(false);
     const [editingProduct, setEditingProduct] = useState<any>(null);
-    const [imageErrors, setImageErrors] = useState<{[key: number]: boolean}>({});
+    const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
 
     useEffect(() => {
-        // Загружаем максимум товаров для управления
         dispatch(fetchProducts({ page: 1, limit: 500 } as any));
         dispatch(fetchCategories());
+        dispatch(fetchOrders()); // загружаем все заказы для проверки
     }, [dispatch]);
 
     const handleEdit = (product: any) => {
@@ -35,15 +38,17 @@ const AdminProducts: React.FC = () => {
     };
 
     const handleDelete = async (productId: number) => {
-        if (window.confirm('Вы уверены, что хотите удалить этот товар?')) {
-            try {
-                await (dispatch as any)(deleteProduct(productId)).unwrap();
-                alert('Товар удален');
-            } catch (error: any) {
-                alert(error?.normalizedMessage || 'Не удалось удалить товар');
-            }
+        if (!window.confirm('Вы уверены, что хотите удалить этот товар?')) return;
+
+        try {
+            await dispatch(deleteProduct(productId));
+            alert('Товар удален');
+        } catch (error: any) {
+            alert(error?.message || 'Не удалось удалить товар');
         }
     };
+
+
 
     const handleImageError = (productId: number) => {
         setImageErrors(prev => ({ ...prev, [productId]: true }));
@@ -62,7 +67,7 @@ const AdminProducts: React.FC = () => {
         return { bg: 'bg-red-100', text: 'text-red-800', label: 'Нет в наличии' };
     };
 
-    if (loading) {
+    if (productsLoading || ordersLoading) {
         return (
             <div className="flex justify-center items-center h-64">
                 <LoadingSpinner />
@@ -166,7 +171,7 @@ const AdminProducts: React.FC = () => {
                                                 </span>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            {formatPrice(product.price)} ₽
+                                            {formatPrice(product.price)} $
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                                 <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${stockStatus.bg} ${stockStatus.text}`}>
@@ -186,7 +191,7 @@ const AdminProducts: React.FC = () => {
                                                 </button>
                                                 <button
                                                     onClick={() => handleDelete(product.id)}
-                                                    className="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-md transition-colors duration-200"
+                                                    className="text-red-600 hover:text-red-800 px-3 py-1 rounded-md bg-red-50 hover:bg-red-100 transition-colors duration-200"
                                                 >
                                                     Удалить
                                                 </button>

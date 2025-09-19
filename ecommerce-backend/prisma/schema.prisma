@@ -50,19 +50,19 @@ model Category {
 }
 
 model Product {
-   id    Int     @id @default(autoincrement())
-  name        String
+  id         Int       @id @default(autoincrement())
+  name       String
   description String
-  price       Decimal  @db.Decimal(10, 2)
-  imageUrl    String?
-  categoryId  Int
-  stock       Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  price      Decimal   @db.Decimal(10, 2)
+  imageUrl   String?
+  categoryId Int
+  stock      Int       @default(0)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  isDeleted  Boolean   @default(false)  // ← обязательно добавить сюда
 
-  // Relations
-  category  Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  cartItems CartItem[]
+  category   Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  cartItems  CartItem[]
   orderItems OrderItem[]
 
   @@map("products")
@@ -102,14 +102,13 @@ model Order {
 model OrderItem {
   id        Int     @id @default(autoincrement())
   orderId   Int
-  productId Int
+  productId Int?   // делаем nullable
   quantity  Int
   price     Decimal @db.Decimal(10, 2)
   createdAt DateTime @default(now())
 
-  // Relations
   order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  product Product @relation(fields: [productId], references: [id])
+  product Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
 
   @@map("order_items")
 }

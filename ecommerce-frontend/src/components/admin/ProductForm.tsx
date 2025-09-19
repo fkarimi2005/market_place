@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { createProduct, updateProduct } from '../../store/slices/productsSlice';
 import { Category } from '../../types';
+import Notification from '../common/Notification';
 
 interface ProductFormProps {
     product?: any;
@@ -22,11 +23,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
     const [imageFile, setImageFile] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(product?.imageUrl || null);
 
+    const [notification, setNotification] = useState<{ message: string; type?: 'success' | 'error' } | null>(null);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,9 +34,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
         if (file) {
             setImageFile(file);
             const reader = new FileReader();
-            reader.onload = (e) => {
-                setImagePreview(e.target?.result as string);
-            };
+            reader.onload = (e) => setImagePreview(e.target?.result as string);
             reader.readAsDataURL(file);
         }
     };
@@ -47,13 +45,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
         const productData = new FormData();
         productData.append('name', formData.name);
         productData.append('description', formData.description);
-        //productData.append('price', formData.price.toString());
-       // productData.append('categoryId', String(formData.categoryId));
         productData.append('price', String(Number(formData.price)));
         productData.append('stock', String(Number(formData.stock)));
         productData.append('categoryId', String(Number(formData.categoryId)));
-
-       // productData.append('stock', formData.stock.toString());
 
         if (imageFile) {
             productData.append('image', imageFile);
@@ -64,32 +58,39 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
         try {
             if (product) {
                 await (dispatch as any)(updateProduct({ id: product.id, data: productData })).unwrap();
+                setNotification({ message: 'Товар обновлен', type: 'success' });
             } else {
                 await (dispatch as any)(createProduct(productData)).unwrap();
+                setNotification({ message: 'Товар создан', type: 'success' });
             }
-            // eslint-disable-next-line no-alert
-            alert(product ? 'Товар обновлен' : 'Товар создан');
             onClose();
         } catch (error: any) {
-            // eslint-disable-next-line no-alert
-            alert(error);
-            // alert(error?.normalizedMessage || 'Ошибка при сохранении товара');
+            setNotification({ message: error?.message || 'Ошибка при сохранении товара', type: 'error' });
         }
     };
 
     return (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-            <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-                <div className="mt-3">
+        <>
+            {/* Уведомления */}
+            {notification && (
+                <Notification
+                    message={notification.message}
+                    type={notification.type}
+                    onClose={() => setNotification(null)}
+                />
+            )}
+
+            {/* Модальное окно */}
+            <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-40">
+                <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
                     <h3 className="text-lg font-medium text-gray-900 mb-4">
                         {product ? 'Редактировать товар' : 'Добавить товар'}
                     </h3>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* Название */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Название
-                            </label>
+                            <label className="block text-sm font-medium text-gray-700">Название</label>
                             <input
                                 type="text"
                                 name="name"
@@ -100,10 +101,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                             />
                         </div>
 
+                        {/* Описание */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Описание
-                            </label>
+                            <label className="block text-sm font-medium text-gray-700">Описание</label>
                             <textarea
                                 name="description"
                                 value={formData.description}
@@ -114,10 +114,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                             />
                         </div>
 
+                        {/* Цена */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Цена
-                            </label>
+                            <label className="block text-sm font-medium text-gray-700">Цена</label>
                             <input
                                 type="number"
                                 name="price"
@@ -130,10 +129,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                             />
                         </div>
 
+                        {/* Категория */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Категория
-                            </label>
+                            <label className="block text-sm font-medium text-gray-700">Категория</label>
                             <select
                                 name="categoryId"
                                 value={formData.categoryId}
@@ -150,10 +148,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                             </select>
                         </div>
 
+                        {/* Количество на складе */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Количество на складе
-                            </label>
+                            <label className="block text-sm font-medium text-gray-700">Количество на складе</label>
                             <input
                                 type="number"
                                 name="stock"
@@ -165,10 +162,9 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                             />
                         </div>
 
+                        {/* Изображение */}
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Изображение товара
-                            </label>
+                            <label className="block text-sm font-medium text-gray-700">Изображение товара</label>
                             <input
                                 type="file"
                                 accept="image/*"
@@ -186,6 +182,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                             )}
                         </div>
 
+                        {/* URL изображения */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700">
                                 URL изображения (альтернатива)
@@ -200,6 +197,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                             />
                         </div>
 
+                        {/* Кнопки */}
                         <div className="flex justify-end space-x-3 pt-4">
                             <button
                                 type="button"
@@ -218,7 +216,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, categories, onClose 
                     </form>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

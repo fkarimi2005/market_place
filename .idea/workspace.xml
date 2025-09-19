@@ -5,49 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bcd36d44-5d28-4715-ab20-02c2c41c77a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/common/Notification.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/orders/OrderProducts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/cart/cart.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/cart/cart.controller.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/cart/cart.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/cart/cart.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/main.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/orders/orders.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/orders/orders.controller.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/orders/orders.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/orders/orders.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/dto/create-product.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/dto/create-product.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/dto/create-product.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/dto/create-product.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/dto/create-product.dto.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/dto/create-product.dto.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/prisma/prisma.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/prisma/prisma.service.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/prisma/prisma.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/prisma/prisma.service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.controller.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.service.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/products/products.service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/src/users/users.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/src/users/users.service.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/dist/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/dist/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/src/products/dto/create-product.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/src/products/dto/create-product.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/edge.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/edge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/index-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/index-browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/wasm.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/node_modules/.prisma/client/wasm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/src/prisma/prisma.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/src/prisma/prisma.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-backend/src/products/products.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/src/products/products.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079305069-955302144.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079312876-411533138.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079356932-909374530.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079454061-502581716.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079510559-313110855.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079517142-912953999.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079789703-912236847.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079792993-142504351.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079806486-89977962.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079806497-38174061.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079806576-414645249.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079806769-63893372.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079807002-513353345.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079812632-129377090.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079813276-867923318.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758079813495-651933950.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758080279203-846196369.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-backend/uploads/1758080356126-141161961.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-backend/src/products/products.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-backend/src/products/products.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/AdminOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/AdminOrders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/AdminProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/AdminProducts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/Analytics.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/Analytics.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/CategoryManagement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/CategoryManagement.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/ProductForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/admin/ProductForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/cart/CartItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/cart/CartItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/orders/OrderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/orders/OrderCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/orders/OrderDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/orders/OrderDetails.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/products/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/products/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Products.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Products.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/products/ProductDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/products/ProductDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/components/products/ProductList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/components/products/ProductList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Admin/Analytics.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Admin/Analytics.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Admin/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Admin/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/pages/Cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/pages/ProductDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/pages/ProductDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/services/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/services/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/src/store/slices/categoriesSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/src/store/slices/categoriesSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce-frontend/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce-frontend/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,38 +78,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.products.controller.ts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Karimi/Desktop/onlineStore&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Karimi\\Desktop\\onlineStore\\ecommerce-backend\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Karimi\\Desktop\\onlineStore\\ecommerce-frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.localhost:3001.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.products.controller.ts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Karimi/Desktop/onlineStore",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Karimi\\Desktop\\onlineStore\\ecommerce-backend\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "configurable.tailwindcss",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\Karimi\\Desktop\\onlineStore\\ecommerce-frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Karimi\Desktop\onlineStore\ecommerce-frontend\src\components\common" />
       <recent name="C:\Users\Karimi\Desktop\onlineStore\ecommerce-backend\upload" />
       <recent name="C:\Users\Karimi\Desktop\onlineStore" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="localhost:3001" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3001">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:3001" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -144,7 +159,10 @@
       <workItem from="1758164842737" duration="1541000" />
       <workItem from="1758166413093" duration="1128000" />
       <workItem from="1758167793030" duration="1874000" />
-      <workItem from="1758172124752" duration="1622000" />
+      <workItem from="1758172124752" duration="3743000" />
+      <workItem from="1758186534826" duration="9127000" />
+      <workItem from="1758215921416" duration="3335000" />
+      <workItem from="1758253622825" duration="9291000" />
     </task>
     <servers />
   </component>
@@ -156,7 +174,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/ecommerce-frontend/src/components/admin/AdminOrders.tsx</url>
-          <line>12</line>
+          <line>13</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

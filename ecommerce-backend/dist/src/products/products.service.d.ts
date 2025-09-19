@@ -2,7 +2,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductQueryDto } from './dto/product-query.dto';
-import { CreateCategoryDto } from "./dto/create-category.dto";
+import { CreateCategoryDto } from './dto/create-category.dto';
 export declare class ProductsService {
     private prisma;
     constructor(prisma: PrismaService);
@@ -12,6 +12,7 @@ export declare class ProductsService {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     } & {
@@ -22,6 +23,7 @@ export declare class ProductsService {
         stock: number;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
         categoryId: number;
     }>;
@@ -32,6 +34,7 @@ export declare class ProductsService {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     }>;
@@ -42,6 +45,7 @@ export declare class ProductsService {
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                isDeleted: boolean;
                 id: number;
             };
         } & {
@@ -52,6 +56,7 @@ export declare class ProductsService {
             stock: number;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
             categoryId: number;
         })[];
@@ -68,6 +73,7 @@ export declare class ProductsService {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     } & {
@@ -78,6 +84,7 @@ export declare class ProductsService {
         stock: number;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
         categoryId: number;
     }>;
@@ -88,6 +95,7 @@ export declare class ProductsService {
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                isDeleted: boolean;
                 id: number;
             };
         } & {
@@ -98,6 +106,7 @@ export declare class ProductsService {
             stock: number;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
             categoryId: number;
         })[];
@@ -115,6 +124,7 @@ export declare class ProductsService {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     } & {
@@ -125,10 +135,11 @@ export declare class ProductsService {
         stock: number;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
         categoryId: number;
     }>;
-    remove(id: number): Promise<{
+    remove(productId: number): Promise<{
         message: string;
     }>;
     getCategories(): Promise<{
@@ -136,6 +147,7 @@ export declare class ProductsService {
         description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
     }[]>;
     getSalesForecastByProduct(): Promise<{

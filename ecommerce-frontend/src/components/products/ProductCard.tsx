@@ -47,8 +47,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
     return (
         <>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
-                <Link to={`/products/${product.id}`} className="block">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 w-full w-166">
+
+            <Link to={`/products/${product.id}`} className="block">
                     <div className="aspect-w-16 aspect-h-9">
                         <img
                            // src={product.imageUrl}
@@ -67,7 +68,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                         )}
                         <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
                         <div className="flex items-center justify-between">
-                            <span className="text-xl font-bold text-indigo-600">{formattedPrice} ₽</span>
+                            <span className="text-xl font-bold text-indigo-600">{formattedPrice} $</span>
                             <button
                                 onClick={handleAddToCart}
                                 className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-200 text-sm font-medium"
@@ -125,7 +126,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 ))}
             </div>
 
-            <style>{`
+            <style>{
+
+
+                `
                 @keyframes shrink {
                     from { width: 100%; }
                     to { width: 0%; }
@@ -139,7 +143,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 .animate-slideDown {
                     animation: slideDown 0.4s ease-out;
                 }
-            `}</style>
+            `}
+            </style>
         </>
     );
 };

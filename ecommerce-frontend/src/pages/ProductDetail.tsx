@@ -104,7 +104,7 @@ const ProductDetail: React.FC = () => {
                             </div>
 
                             <div>
-                                <p className="text-3xl font-bold text-indigo-600">{price.toFixed(2)} ₽</p>
+                                <p className="text-3xl font-bold text-indigo-600">{price.toFixed(2)} $</p>
                             </div>
 
                             <div>

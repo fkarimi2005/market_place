@@ -35,6 +35,7 @@ export const productService = {
         return response.data;
     },
 
+
     // Admin methods
     createProduct: async (productData: FormData): Promise<Product> => {
         const response = await api.post('/products', productData, {
@@ -58,5 +59,9 @@ export const productService = {
     createCategory: async (categoryData: { name: string; description?: string }) => {
         const response = await api.post('/products/categories', categoryData);
         return response.data;
+    },
+    deleteCategory: async (id: number) => {   // ✅ добавляем этот метод
+        const response = await api.delete(`/categories/${id}`)
+        return response.data
     }
 };

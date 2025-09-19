@@ -12,6 +12,7 @@ export declare class ProductsController {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     } & {
@@ -22,6 +23,7 @@ export declare class ProductsController {
         stock: number;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
         categoryId: number;
     }>;
@@ -32,6 +34,7 @@ export declare class ProductsController {
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                isDeleted: boolean;
                 id: number;
             };
         } & {
@@ -42,6 +45,7 @@ export declare class ProductsController {
             stock: number;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
             categoryId: number;
         })[];
@@ -57,6 +61,7 @@ export declare class ProductsController {
         description: string | null;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
     }[]>;
     getForecastByProduct(): Promise<{
@@ -79,6 +84,7 @@ export declare class ProductsController {
                 description: string | null;
                 createdAt: Date;
                 updatedAt: Date;
+                isDeleted: boolean;
                 id: number;
             };
         } & {
@@ -89,6 +95,7 @@ export declare class ProductsController {
             stock: number;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
             categoryId: number;
         })[];
@@ -106,6 +113,7 @@ export declare class ProductsController {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     } & {
@@ -116,6 +124,7 @@ export declare class ProductsController {
         stock: number;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
         categoryId: number;
     }>;
@@ -125,6 +134,7 @@ export declare class ProductsController {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     } & {
@@ -135,6 +145,7 @@ export declare class ProductsController {
         stock: number;
         createdAt: Date;
         updatedAt: Date;
+        isDeleted: boolean;
         id: number;
         categoryId: number;
     }>;
@@ -148,6 +159,7 @@ export declare class ProductsController {
             description: string | null;
             createdAt: Date;
             updatedAt: Date;
+            isDeleted: boolean;
             id: number;
         };
     }>;

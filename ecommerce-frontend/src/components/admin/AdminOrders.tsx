@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchAllOrders, updateOrderStatus } from '../../store/slices/ordersSlice';
 import LoadingSpinner from '../common/LoadingSpinner';
+import OrderProducts from "../orders/OrderProducts";
 
 const AdminOrders: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -14,10 +15,8 @@ const AdminOrders: React.FC = () => {
     const handleStatusChange = async (orderId: number, newStatus: string) => {
         try {
             await (dispatch as any)(updateOrderStatus({ id: orderId, status: newStatus })).unwrap();
-            // eslint-disable-next-line no-alert
             alert('Статус обновлен');
         } catch (error: any) {
-            // eslint-disable-next-line no-alert
             alert(error?.normalizedMessage || 'Не удалось обновить статус');
         }
     };
@@ -53,33 +52,27 @@ const AdminOrders: React.FC = () => {
                 return 'Отменен';
             default:
                 return status;
-        }
-    };
+        }};
 
-    // Функция для получения имени клиента
-    const getCustomerDisplay = (order: any): string => {
-        // Проверяем разные возможные поля для имени пользователя
-        if (order.user?.name) {
-            return order.user.name;
-        }
-        if (order.user?.firstName && order.user?.lastName) {
-            return `${order.user.firstName} ${order.user.lastName}`;
-        }
-        if (order.user?.firstName) {
-            return order.user.firstName;
-        }
-        if (order.user?.email) {
-            return order.user.email;
-        }
-        if (order.customerName) {
-            return order.customerName;
-        }
-        if (order.customerEmail) {
-            return order.customerEmail;
-        }
-        // Если ничего не найдено, показываем ID заказа
+        const getNameProduct = (order: any): string => {
+            if (Array.isArray(order.orderItems) && order.orderItems.length > 0) {
+                return order.orderItems
+                    .map((item: any) => `${item.product?.name} (x${item.quantity})`)
+                    .join(', ');
+            }
+            return 'Нет товаров';
+        };
+
+        const getCustomerDisplay = (order: any): string => {
+        if (order.user?.name) return order.user.name;
+        if (order.user?.firstName && order.user?.lastName) return `${order.user.firstName} ${order.user.lastName}`;
+        if (order.user?.firstName) return order.user.firstName;
+        if (order.user?.email) return order.user.email;
+        if (order.customerName) return order.customerName;
+        if (order.customerEmail) return order.customerEmail;
         return `Заказ #${order.id}`;
     };
+
     const formatCurrency = (value: any): string => {
         const numValue = Number(value);
         if (typeof numValue !== 'number' || isNaN(numValue)) {
@@ -88,7 +81,6 @@ const AdminOrders: React.FC = () => {
         return numValue.toFixed(2);
     };
 
-    // Безопасная проверка массива orders
     const safeOrders = Array.isArray(orders) ? orders : [];
 
     if (loading) {
@@ -109,6 +101,9 @@ const AdminOrders: React.FC = () => {
                     <tr>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Клиент
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Товар
                         </th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Дата
@@ -133,17 +128,26 @@ const AdminOrders: React.FC = () => {
                                     <div className="text-xs text-gray-500">#{order.id}</div>
                                 </div>
                             </td>
+
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                <OrderProducts items={order.orderItems} />
+                            </td>
+
+
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 {new Date(order.createdAt).toLocaleDateString('ru-RU')}
                             </td>
+
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {formatCurrency(order.total)} ₽
+                                {formatCurrency(order.total)} $
                             </td>
+
                             <td className="px-6 py-4 whitespace-nowrap">
                                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(order.status)}`}>
                                         {getStatusText(order.status)}
                                     </span>
                             </td>
+
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <select
                                     value={order.status}

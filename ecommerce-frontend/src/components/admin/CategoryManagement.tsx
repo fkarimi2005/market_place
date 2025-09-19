@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { createCategory, fetchCategories } from '../../store/slices/categoriesSlice';
+import {
+    createCategory,
+    fetchCategories,
+    deleteCategory,
+} from '../../store/slices/categoriesSlice';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 const CategoryManagement: React.FC = () => {
@@ -14,7 +18,7 @@ const CategoryManagement: React.FC = () => {
     });
     const [submitLoading, setSubmitLoading] = useState(false);
 
-    // Загружаем категории при монтировании компонента
+    // Загружаем категории при монтировании
     useEffect(() => {
         dispatch(fetchCategories());
     }, [dispatch]);
@@ -34,11 +38,9 @@ const CategoryManagement: React.FC = () => {
                 await dispatch(createCategory(formData)).unwrap();
                 setFormData({ name: '', description: '' });
                 setShowForm(false);
-                // Перезагружаем категории после создания
                 dispatch(fetchCategories());
             } catch (error: any) {
                 console.error('Ошибка создания категории:', error);
-                // Можно добавить toast уведомление
                 alert(error?.message || 'Не удалось создать категорию');
             } finally {
                 setSubmitLoading(false);
@@ -54,10 +56,20 @@ const CategoryManagement: React.FC = () => {
     // Функция для подсчета товаров в категории
     const getProductCount = (categoryId: number): number => {
         if (!Array.isArray(products)) return 0;
-        return products.filter(product => product.categoryId === categoryId).length;
+        return products.filter((product) => product.categoryId === categoryId).length;
     };
 
-    // Безопасная проверка массива категорий
+    // Удаление категории
+    const handleDelete = async (id: number) => {
+        if (window.confirm('Вы уверены, что хотите удалить категорию?')) {
+            try {
+                await dispatch(deleteCategory(id)).unwrap();
+            } catch (error: any) {
+                alert(error?.message || 'Не удалось удалить категорию');
+            }
+        }
+    };
+
     const safeCategories = Array.isArray(categories) ? categories : [];
 
     if (loading) {
@@ -93,8 +105,18 @@ const CategoryManagement: React.FC = () => {
                                     className="text-gray-400 hover:text-gray-600"
                                     disabled={submitLoading}
                                 >
-                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    <svg
+                                        className="w-6 h-6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M6 18L18 6M6 6l12 12"
+                                        />
                                     </svg>
                                 </button>
                             </div>
@@ -102,7 +124,8 @@ const CategoryManagement: React.FC = () => {
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">
-                                        Название категории <span className="text-red-500">*</span>
+                                        Название категории{' '}
+                                        <span className="text-red-500">*</span>
                                     </label>
                                     <input
                                         type="text"
@@ -146,9 +169,24 @@ const CategoryManagement: React.FC = () => {
                                         className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center"
                                     >
                                         {submitLoading && (
-                                            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            <svg
+                                                className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <circle
+                                                    className="opacity-25"
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                    stroke="currentColor"
+                                                    strokeWidth="4"
+                                                ></circle>
+                                                <path
+                                                    className="opacity-75"
+                                                    fill="currentColor"
+                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                ></path>
                                             </svg>
                                         )}
                                         {submitLoading ? 'Создание...' : 'Создать'}
@@ -176,6 +214,7 @@ const CategoryManagement: React.FC = () => {
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Товаров
                         </th>
+
                     </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
@@ -188,7 +227,10 @@ const CategoryManagement: React.FC = () => {
                                 {category.name}
                             </td>
                             <td className="px-6 py-4 text-sm text-gray-900">
-                                <div className="max-w-xs truncate" title={category.description || ''}>
+                                <div
+                                    className="max-w-xs truncate"
+                                    title={category.description || ''}
+                                >
                                     {category.description || '—'}
                                 </div>
                             </td>
@@ -197,6 +239,9 @@ const CategoryManagement: React.FC = () => {
                                         {getProductCount(category.id)}
                                     </span>
                             </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+
+                            </td>
                         </tr>
                     ))}
                     </tbody>
@@ -204,8 +249,18 @@ const CategoryManagement: React.FC = () => {
 
                 {safeCategories.length === 0 && !loading && (
                     <div className="text-center py-12">
-                        <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14-4H3m16 8H1m18 4H3" />
+                        <svg
+                            className="mx-auto h-12 w-12 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 11H5m14-4H3m16 8H1m18 4H3"
+                            />
                         </svg>
                         <h3 className="mt-2 text-sm font-medium text-gray-900">Нет категорий</h3>
                         <p className="mt-1 text-sm text-gray-500">

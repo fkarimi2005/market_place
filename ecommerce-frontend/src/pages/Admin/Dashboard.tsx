@@ -80,7 +80,7 @@ const AdminDashboard: React.FC = () => {
                             </div>
                             <div className="ml-4">
                                 <h3 className="text-lg font-medium text-gray-900">Доход</h3>
-                                <p className="text-2xl font-bold text-purple-600">{formattedRevenue} ₽</p>
+                                <p className="text-2xl font-bold text-purple-600">{formattedRevenue} $</p>
                             </div>
                         </div>
                     </div>
